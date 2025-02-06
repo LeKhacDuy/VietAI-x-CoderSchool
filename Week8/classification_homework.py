@@ -44,9 +44,9 @@ lại các token có frequency trong range [0.01, 0.95]
 preprocessor = ColumnTransformer(transformers=[
     ("title", TfidfVectorizer(stop_words='english', ngram_range=(1, 1), max_df=0.95, min_df=0.01), "title"),
     ("location", OneHotEncoder(handle_unknown="ignore"), ["location"]),
-    ("description", TfidfVectorizer(stop_words='english', ngram_range=(1, 2), max_df=0.95, min_df=0.01), "description"),
+    ("description", TfidfVectorizer(stop_words='english', ngram_range=(1, 2), max_df=0.99, min_df=0.01), "description"),
     ("function", OneHotEncoder(handle_unknown="ignore"), ["function"]),
-    ("industry", TfidfVectorizer(stop_words='english', ngram_range=(1, 1), max_df=0.95, min_df=0.01), "industry")
+    ("industry", TfidfVectorizer(stop_words='english', ngram_range=(1, 1), max_df=0.99, min_df=0.01), "industry")
 ], remainder="passthrough")
 
 model = Pipeline(steps=[
